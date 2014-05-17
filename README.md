@@ -4,4 +4,4 @@ fortranformat
 
 ## License
 
-[MIT](LICENSE)
+[ISC](LICENSE)
