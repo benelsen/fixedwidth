@@ -46,3 +46,18 @@ test('line3', function (t) {
   t.deepEqual(result3, expected3);
 
 });
+
+var line4 = '> 2014 01 01 00 00  0.0000000  0 20',
+    format4 = 'A1,1X,I4,4(1X,I2.2),F11.7,2X,I1,I3,6X,F15.12';
+
+test('line4', function (t) {
+
+  t.plan(1);
+
+  var result4 = fixedWidth(line4, format4);
+
+  var expected4 = ['>', 2014, 1, 1, 0, 0, 0, 0, 20, null];
+
+  t.deepEqual(result4, expected4);
+
+});
