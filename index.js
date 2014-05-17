@@ -58,29 +58,42 @@ module.exports = function(line, format) {
         type = match[2],
         width = parseInt(match[4], 10) || 1;
 
-    var foo;
+    var sliced = line.slice(startIndex, startIndex+width);
+
+    var foo = null;
 
     switch ( type ) {
+
       case 'A':
-        foo = line.slice(startIndex, startIndex+width);
+        foo = sliced;
         break;
+
       case 'F':
       case 'E':
-        foo = parseFloat( line.slice(startIndex, startIndex+width) );
+
+        if ( sliced.trim().length !== 0 ) {
+          foo = parseFloat( sliced );
+        }
         break;
+
       case 'I':
-        foo = parseInt( line.slice(startIndex, startIndex+width), 10);
+
+        if ( sliced.trim().length !== 0 ) {
+          foo = parseInt( sliced, 10 );
+        }
         break;
+
       case 'X':
-        foo = null;
+        foo = sliced;
         break;
+
     }
 
     startIndex += width;
 
     return foo;
   }).filter( function(d) {
-    return d !== null;
+    return (d+'').trim().length !== 0;
   });
 
   return result;
