@@ -18,7 +18,7 @@ and generates
 ## How
 
 ```javascript
-var fortranformat = require( 'fortranformat' );
+var fixedWidth = require( 'fortranformat' );
 var result = fixedWidth( line, format );
 ```
 
