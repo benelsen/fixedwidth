@@ -102,4 +102,3 @@ module.exports = function(line, format) {
   return result;
 
 };
-
