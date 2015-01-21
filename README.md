@@ -1,5 +1,4 @@
-fortranformat
-=============
+# fortranformat
 
 ## What
 
