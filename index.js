@@ -86,7 +86,7 @@ module.exports = function(line, format) {
         break;
 
       case 'X':
-        foo = sliced;
+        foo = '';
         break;
 
     }
