@@ -25,7 +25,7 @@ module.exports = function(line, format) {
   }
 
   // Expand repetitions: 3F6.4 => F6.4,F6.4,F6.4
-  while ( ( match = /(\d+)([AFIX]{1}[\d\.]*)/.exec(format) ) !== null ) {
+  while ( ( match = /(\d+)([ADEFIX]{1}[\d\.]*)/.exec(format) ) !== null ) {
 
     times = parseInt(match[1], 10);
 
@@ -52,7 +52,7 @@ module.exports = function(line, format) {
 
   var result = elements.map( function(e) {
 
-    var match = /(\d+)?([AFEIX]{1})((\d+){1}[.\d]*)?/.exec(e);
+    var match = /(\d+)?([ADEFIX]{1})((\d+){1}[.\d]*)?/.exec(e);
 
     var repetitions = parseInt(match[1], 10) || 1,
         type = match[2],
@@ -70,11 +70,12 @@ module.exports = function(line, format) {
         foo = sliced;
         break;
 
-      case 'F':
+      case 'D':
       case 'E':
+      case 'F':
 
         if ( sliced.trim().length !== 0 ) {
-          foo = parseFloat( sliced );
+          foo = parseFloat( sliced.replace(/[DF]/i, 'e') );
         }
         break;
 
