@@ -3,7 +3,7 @@ module.exports = function(line, format) {
   var match, times, expanded, i;
 
   // Expand groups: A2,3(1X,I2) => A2,1X,I2,1X,I2,1X,I2
-  while ( ( match = /(\d+)\((.*)\)/.exec(format) ) !== null ) {
+  while ( ( match = /(\d+)\((.*?)\)/.exec(format) ) !== null ) {
 
     times = parseInt(match[1], 10);
 
@@ -50,7 +50,7 @@ module.exports = function(line, format) {
 
   var startIndex = 0;
 
-  var result = elements.map( function(e) {
+  var result = elements.reduce( function(m, e) {
 
     var match = /(\d+)?([ADEFIX]{1})((\d+){1}[.\d]*)?/.exec(e);
 
@@ -60,7 +60,7 @@ module.exports = function(line, format) {
 
     var sliced = line.slice(startIndex, startIndex+width);
 
-    // console.log(repetitions, type, width, '=' + sliced + '=');
+    startIndex += width;
 
     var foo = null;
 
@@ -87,18 +87,16 @@ module.exports = function(line, format) {
         break;
 
       case 'X':
-        foo = '';
+        return m;
         break;
 
     }
 
-    startIndex += width;
+    m.push(foo);
 
-    return foo;
+    return m;
 
-  }).filter( function(d) {
-    return (d+'').trim().length !== 0;
-  });
+  }, []);
 
   return result;
 

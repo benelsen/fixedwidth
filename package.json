@@ -1,6 +1,6 @@
 {
   "name": "fortranformat",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "homepage": "https://github.com/benelsen/fortranformat",
   "license": "ISC",
@@ -15,9 +15,9 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/tape test/**/*.js"
+    "test": "tape test/**/*.js"
   },
   "devDependencies": {
-    "tape": "^3.5.0"
+    "tape": "^4.0.0"
   }
 }
