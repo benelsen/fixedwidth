@@ -1,12 +1,12 @@
 {
-  "name": "fortranformat",
+  "name": "fixedwidth",
   "version": "1.1.2",
   "description": "",
-  "homepage": "https://github.com/benelsen/fortranformat",
+  "homepage": "https://github.com/benelsen/fixedwidth",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/benelsen/fortranformat.git"
+    "url": "https://github.com/benelsen/fixedwidth.git"
   },
   "author": {
     "name": "Ben Elsen",
